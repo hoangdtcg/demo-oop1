@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500px" height="300" style="background-color: pink"></canvas>
+<script>
+    //Lập trình theo hướng thủ tục:
+        //- Chạy từ trên xuống dưới
+        //- Luồng thực thi thay đổi bằng các câu lệnh rẽ nhánh(if-else, switch-case), lặp(for, while, do-while), nhảy(jump: break, continue)
+    //Bài toán: Thương và Ngân cùng ăn 100 cái bánh bao. xem ai ăn hết trước thì người đó thắng.
+
+    //Đối tượng(Object): là một mô phỏng của thực thể ở ngoài đời, đối tượng bao gồm thuộc tính(property) và hành vi(method). Để mô tả dữ liệu 1 cách rõ ràng hơn.
+
+    let productArr = ["Apple",1000,"An rat ngon"];//Arr: Các phần tử có cùng kiểu dữ liệu
+    //productArr[0]
+    class Product{
+        constructor(_name,_price,_detail) {
+            this.name = _name;
+            this.price = _price;
+            this.detail = _detail;
+        }
+
+        showInfo(){
+            alert(this.name + " co gia la "+ this.price);
+        }
+
+        showDetail(){
+            alert(this.name + " co mo ta la " + this.detail);
+        }
+    }
+
+    let productObj1 = new Product("Apple",1000,"Hang chuan My Dinh");
+    let productObj2 = new Product("Banana",2000,"Chuoi nay hoi xanh");
+    let productObj3 = new Product("Orange",3000,"Ten 1 ca si");
+    let arr = [productObj1,productObj2,productObj3];
+    productObj2.showInfo();
+    productObj2.showDetail();
+
+    //Getter và Setter khác nhau như nào?
+    //Constructor là gì?
+
+    console.log(arr);
+
+    // document.write(productArr);
+    // console.log(productObj['price']);
+    // console.log(productObj.name);
+    //Obj: các phần tử khác kiểu dữ liệu dưới dạng cặp key-value;vd: name:key - "Apple: value"
+    //Entity
+
+    //Lớp(Class): là bản thiết kế (mô tả) của 1 loại đối tượng bao gồm thuộc tính, hành vi và các mối quan hệ.
+    //Ví dụ: Ô tô - Object, Bản thiết kế - Class. K
+    //Khai báo Class - Khởi tạo Object
+
+    //UML - Sơ đồ lớp.
+        //-Tên lớp(Class name)
+        //-Thuộc tính (Property)
+        //-Phương thức (Method)
+
+    let canvas = document.getElementById('myCanvas');
+    let pen = canvas.getContext('2d');
+
+    pen.beginPath();
+    pen.rect(200,200,200,150);
+    pen.lineWidth = 10;
+    pen.strokeStyle = "black";
+    pen.stroke();
+    pen.fillStyle = "green";
+    pen.fill();
+    pen.closePath();
+
+    pen.beginPath();
+    pen.arc(50,50,30,0,2*Math.PI);
+    pen.fillStyle = "black";
+    pen.fill();
+    pen.closePath();
+
+    pen.beginPath();
+    let img = new Image();
+    img.src = "https://cdn.iconscout.com/icon/free/png-256/haha-2387660-1991060.png";
+    pen.drawImage(img,10,10);
+    pen.closePath();
+
+</script>
+</body>
+</html>

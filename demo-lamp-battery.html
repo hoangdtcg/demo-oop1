@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Battery{
+        constructor(_energy) {
+            this.energy = _energy;
+        }
+
+        checkEnergy(){
+            if(this.energy <= 0){
+                return false;
+            }else {
+                return true;
+            }
+        }
+
+        decrease(value){
+            if(this.checkEnergy()){
+                this.energy-=value;
+            }else {
+                alert("Het pin roi con dau")
+            }
+        }
+    }
+
+    class Lamp{
+        constructor() {
+            this.status = false;
+            this.battery = Battery;
+        }
+
+        connect(_battery){
+            this.battery = _battery;
+        }
+
+        switchOn(){
+            if(this.battery.checkEnergy()){
+                alert("Bat den");
+                this.battery.decrease(5);
+                alert(this.battery.energy);
+            }
+        }
+
+        switchOff(){}
+    }
+
+    let lamp = new Lamp();//Chay luon Constructer
+    let battery = new Battery(100);
+    lamp.connect(battery);
+    lamp.switchOn();
+
+</script>
+</body>
+</html>
